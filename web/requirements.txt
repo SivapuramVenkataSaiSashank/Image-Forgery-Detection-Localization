@@ -1,0 +1,13 @@
+# Core Web Framework
+Flask>=2.2.0
+flask-cors>=3.0.10
+
+# Deep Learning & Computer Vision
+torch>=2.0.0
+torchvision>=0.15.0
+timm>=0.9.2
+
+# Image Processing & Utilities
+numpy>=1.23.0
+Pillow>=9.5.0
+matplotlib>=3.7.0

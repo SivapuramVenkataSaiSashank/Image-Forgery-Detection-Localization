@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VeriSight AI - Deepfake & Image Manipulation Forensics Studio</title>
+  <meta name="description" content="AI-powered deepfake and image tampering detection with pixel-level localization using a Hybrid CNN + Vision Transformer architecture.">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300f2fe'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>VeriSight AI</h1>
+          <span>Neural Forensics Studio</span>
+        </div>
+      </div>
+
+      <div class="header-status">
+        <div class="status-pill">
+          <span class="pulse-dot"></span>
+          <span>Proposed Hybrid Active (86.8% Acc)</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <div class="hero-badge">Dual-Task CNN + ViT Architecture</div>
+      <h2>Deepfake & Image Manipulation Detection</h2>
+      <p>Detect authentic vs tampered imagery and visualize exact pixel-level manipulation boundaries in real time.</p>
+    </section>
+
+    <!-- Main Grid -->
+    <main class="main-grid">
+      
+      <!-- LEFT CONTROL PANEL -->
+      <aside class="control-panel">
+        <div class="card">
+          <div class="card-header">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+              Upload Inspection Target
+            </h3>
+          </div>
+
+          <!-- Dropzone -->
+          <div class="dropzone" id="dropzone">
+            <input type="file" id="fileInput" accept="image/png, image/jpeg, image/tiff" style="display: none;">
+            <div class="dropzone-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+            </div>
+            <div class="dropzone-text">
+              <h4 id="dropzoneTitle">Drag & Drop Image Here</h4>
+              <p id="dropzoneSubtitle">or click to browse from device</p>
+              <p class="format-hint">Supports JPEG, PNG, TIFF (Max 25MB)</p>
+            </div>
+          </div>
+
+          <!-- 1-Click Samples -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>Quick Test Samples</span>
+              <span style="color: var(--primary-cyan); font-weight: 500;">1-Click</span>
+            </div>
+            <div class="samples-grid" id="samplesGrid">
+              <!-- Dynamically populated via app.js -->
+            </div>
+          </div>
+
+          <!-- Model Selector -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>Detection Backbone</span>
+              <span id="modelAccBadge" style="color: var(--color-real);">86.80% Acc</span>
+            </div>
+            <select id="modelSelect" class="custom-select">
+              <option value="hybrid" selected>Proposed Hybrid (CNN + Swin-T + U-Net)</option>
+              <option value="swin">Swin-T (Vision Transformer Baseline)</option>
+              <option value="resnet50">ResNet-50 (CNN Baseline)</option>
+            </select>
+          </div>
+
+          <!-- Colormap & Threshold Controls -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px;">
+            <div>
+              <div class="control-label">
+                <span>Colormap</span>
+              </div>
+              <select id="colormapSelect" class="custom-select">
+                <option value="jet" selected>Jet (Rainbow)</option>
+                <option value="hot">Thermal (Hot)</option>
+                <option value="turbo">Turbo Neon</option>
+                <option value="viridis">Viridis</option>
+              </select>
+            </div>
+            <div>
+              <div class="control-label">
+                <span>Sensitivity</span>
+                <span id="thresholdVal" style="color: var(--primary-cyan);">0.50</span>
+              </div>
+              <input type="range" id="thresholdRange" min="0.1" max="0.9" step="0.05" value="0.5" style="margin-top: 10px;">
+            </div>
+          </div>
+
+          <!-- Analyze Button -->
+          <button class="btn-analyze" id="btnAnalyze">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>Run Forensic Analysis</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- RIGHT DASHBOARD -->
+      <section class="dashboard">
+        <div class="results-container">
+          
+          <!-- Verdict Banner -->
+          <div class="verdict-banner" id="verdictBanner">
+            <div class="verdict-info">
+              <h4>Classification Verdict</h4>
+              <div class="verdict-title" id="verdictText">Awaiting Analysis...</div>
+              <div style="margin-top: 6px; font-size: 0.88rem; color: var(--text-dim);" id="verdictSubtext">Upload an image and click Analyze</div>
+            </div>
+
+            <div class="gauge-wrapper">
+              <svg class="gauge-svg" viewBox="0 0 100 100">
+                <circle class="gauge-bg" cx="50" cy="50" r="40"></circle>
+                <circle class="gauge-val" id="gaugeVal" cx="50" cy="50" r="40"></circle>
+              </svg>
+              <div class="gauge-text" id="gaugeText">0%</div>
+            </div>
+          </div>
+
+          <!-- Interactive Comparison Studio -->
+          <div class="card" style="padding: 16px; position: relative;">
+            <div class="loading-overlay" id="loadingOverlay">
+              <div class="spinner"></div>
+              <div style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600;">Analyzing Image Manipulations...</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Running Dual-Task Hybrid Inference</div>
+            </div>
+
+            <div class="card-header" style="margin-bottom: 12px; padding-bottom: 8px;">
+              <h3 style="font-size: 1.05rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                Manipulation Localization Studio
+              </h3>
+
+              <!-- View Switcher -->
+              <div style="display: flex; gap: 6px;">
+                <button class="view-btn active" id="btnSplitView" style="padding: 4px 10px; font-size: 0.75rem; background: rgba(0,242,254,0.15); border: 1px solid var(--primary-cyan); color: #fff; border-radius: 4px; cursor: pointer;">Split-Slider</button>
+                <button class="view-btn" id="btnOverlayView" style="padding: 4px 10px; font-size: 0.75rem; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); border-radius: 4px; cursor: pointer;">Heatmap</button>
+                <button class="view-btn" id="btnMaskView" style="padding: 4px 10px; font-size: 0.75rem; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); border-radius: 4px; cursor: pointer;">Binary Mask</button>
+              </div>
+            </div>
+
+            <!-- Split-Slider Container -->
+            <div class="interactive-studio" id="studioContainer">
+              <!-- Bottom Layer: Heatmap / Forgery Localization -->
+              <div class="split-layer bottom-layer" id="bottomLayer">
+                <img id="imgHeatmap" src="/static/samples/sample_fake_splicing.png" alt="Localization Heatmap">
+              </div>
+
+              <!-- Top Layer: Original Image (clipped) -->
+              <div class="split-layer top-layer" id="topLayer">
+                <img id="imgOriginal" src="/static/samples/sample_fake_splicing.png" alt="Original Target Image">
+              </div>
+
+              <!-- Draggable Slider Handle -->
+              <div class="slider-handle" id="sliderHandle">
+                <div class="handle-button">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                    <polyline points="9 18 15 12 9 6" style="display: none;"></polyline>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Badges -->
+              <div class="studio-labels">
+                <span class="badge-label">Original Photo</span>
+                <span class="badge-label" style="background: rgba(0, 242, 254, 0.2); border-color: var(--primary-cyan);">Tampering Heatmap</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Forensics Telemetry Cards -->
+          <div class="telemetry-grid">
+            <div class="tele-card">
+              <div class="tele-title">Tampered Region Area</div>
+              <div class="tele-value" id="valTamperedArea">0.0%</div>
+              <div class="tele-subtitle">Estimated corrupted surface</div>
+            </div>
+
+            <div class="tele-card">
+              <div class="tele-title">Peak Forgery Intensity</div>
+              <div class="tele-value" id="valIntensity">0.0%</div>
+              <div class="tele-subtitle">Highest localized anomaly score</div>
+            </div>
+
+            <div class="tele-card">
+              <div class="tele-title">Inference Latency</div>
+              <div class="tele-value" id="valLatency">-- ms</div>
+              <div class="tele-subtitle" id="valDevice">Device: GPU</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>VeriSight AI &copy; 2026 | Dual-Task Hybrid CNN-ViT Architecture for Image Manipulation Forensics</p>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

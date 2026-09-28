@@ -1,0 +1,50 @@
+[
+  {
+    "id": "fake_splicing",
+    "name": "Forged (Splicing)",
+    "type": "FAKE",
+    "category": "Splicing",
+    "file": "/static/samples/sample_fake_splicing.png",
+    "description": "DEFACTO splicing manipulation sample."
+  },
+  {
+    "id": "real_1",
+    "name": "Pristine Authentic #1",
+    "type": "REAL",
+    "category": "Authentic",
+    "file": "/static/samples/sample_real_1.png",
+    "description": "Authentic unedited image (COCO dataset)."
+  },
+  {
+    "id": "real_2",
+    "name": "Pristine Authentic #2",
+    "type": "REAL",
+    "category": "Authentic",
+    "file": "/static/samples/sample_real_2.png",
+    "description": "Authentic unedited image (COCO dataset)."
+  },
+  {
+    "id": "fake_copymove",
+    "name": "Forged (Copymove)",
+    "type": "FAKE",
+    "category": "Copymove",
+    "file": "/static/samples/sample_fake_copymove.png",
+    "description": "DEFACTO copymove manipulation sample."
+  },
+  {
+    "id": "fake_inpainting",
+    "name": "Forged (Inpainting)",
+    "type": "FAKE",
+    "category": "Inpainting",
+    "file": "/static/samples/sample_fake_inpainting.png",
+    "description": "DEFACTO inpainting manipulation sample."
+  },
+  {
+    "id": "fake_face",
+    "name": "Forged (Face)",
+    "type": "FAKE",
+    "category": "Face",
+    "file": "/static/samples/sample_fake_face.png",
+    "description": "DEFACTO face manipulation sample."
+  }
+]
