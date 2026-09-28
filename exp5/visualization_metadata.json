@@ -1,0 +1,64 @@
+{
+  "num_examples": 8,
+  "datasets_included": [
+    "splicing"
+  ],
+  "examples": [
+    {
+      "idx": 0,
+      "dataset": "splicing",
+      "path": "datasets/defactodataset\\defactosplicing\\splicing_4_img\\img\\15607_000000271398.tif",
+      "resnet_pred": 0.4495738744735718,
+      "swin_pred": 0.9579400420188904
+    },
+    {
+      "idx": 1,
+      "dataset": "splicing",
+      "path": "datasets/defactodataset\\defactosplicing\\splicing_7_img\\img\\12032_000000506034.tif",
+      "resnet_pred": 0.5656088590621948,
+      "swin_pred": 0.6715401411056519
+    },
+    {
+      "idx": 2,
+      "dataset": "splicing",
+      "path": "datasets/defactodataset\\defactosplicing\\splicing_5_img\\img\\9671_000000313532.tif",
+      "resnet_pred": 0.8748796582221985,
+      "swin_pred": 0.9818693995475769
+    },
+    {
+      "idx": 3,
+      "dataset": "splicing",
+      "path": "datasets/defactodataset\\defactosplicing\\splicing_2_img\\img\\22285_000000160626.tif",
+      "resnet_pred": 0.5217965841293335,
+      "swin_pred": 0.5269953012466431
+    },
+    {
+      "idx": 4,
+      "dataset": "splicing",
+      "path": "datasets/defactodataset\\defactosplicing\\splicing_2_img\\img\\15482_000000005706.tif",
+      "resnet_pred": 0.9992561936378479,
+      "swin_pred": 0.9982945322990417
+    },
+    {
+      "idx": 5,
+      "dataset": "splicing",
+      "path": "datasets/defactodataset\\defactosplicing\\splicing_4_img\\img\\21131_000000434006.tif",
+      "resnet_pred": 0.9999998807907104,
+      "swin_pred": 0.9991325736045837
+    },
+    {
+      "idx": 6,
+      "dataset": "splicing",
+      "path": "datasets/defactodataset\\defactosplicing\\splicing_6_img\\img\\12888_000000457133.tif",
+      "resnet_pred": 0.9983910918235779,
+      "swin_pred": 0.9992160797119141
+    },
+    {
+      "idx": 7,
+      "dataset": "splicing",
+      "path": "datasets/defactodataset\\defactosplicing\\splicing_2_img\\img\\10387_000000047406.tif",
+      "resnet_pred": 0.9345525503158569,
+      "swin_pred": 0.9956887364387512
+    }
+  ]
+}
