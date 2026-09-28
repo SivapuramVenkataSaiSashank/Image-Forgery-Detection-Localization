@@ -1,0 +1,44 @@
+[
+  {
+    "example_id": 1,
+    "category": "misclassification",
+    "dataset": "splicing",
+    "path": "datasets/defactodataset\\defactosplicing\\splicing_1_img\\img\\21106_000000016784.tif",
+    "area_ratio": 0.0052614795918367345,
+    "contrast": 23.36169840737881,
+    "resnet_pred": 0,
+    "resnet_conf": 3.688622757930249e-13,
+    "swin_pred": 0,
+    "swin_conf": 2.5709887268021703e-05,
+    "resnet_iou": 0.0126272643131032,
+    "swin_iou": 0.0013074459044257
+  },
+  {
+    "example_id": 2,
+    "category": "low_contrast",
+    "dataset": "face",
+    "path": "datasets/defactodataset\\defactoface\\morphing_img\\img\\116.jpg_IN_156.jpg.tif",
+    "area_ratio": 0.22991071428571427,
+    "contrast": 0.002409344911455946,
+    "resnet_pred": 1,
+    "resnet_conf": 0.5064665675163269,
+    "swin_pred": 1,
+    "swin_conf": 0.8078405857086182,
+    "resnet_iou": 0.6607745159275453,
+    "swin_iou": 0.4167199488491048
+  },
+  {
+    "example_id": 3,
+    "category": "poor_localization",
+    "dataset": "splicing",
+    "path": "datasets/defactodataset\\defactosplicing\\splicing_1_img\\img\\24814_000000288317.tif",
+    "area_ratio": 0.0004384566326530612,
+    "contrast": 5.939368563007747,
+    "resnet_pred": 1,
+    "resnet_conf": 0.5737223625183105,
+    "swin_pred": 1,
+    "swin_conf": 0.9763715863227844,
+    "resnet_iou": 0.0,
+    "swin_iou": 0.001328462304882
+  }
+]

@@ -1,0 +1,5 @@
+Failure Type,Count,Percentage
+Small Region (<5%),19786,64.9%
+Low Contrast,14241,46.7%
+Misclassification,19131,62.7%
+Poor Localization,23804,78.0%

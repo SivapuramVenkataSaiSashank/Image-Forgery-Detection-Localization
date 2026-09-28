@@ -1,0 +1,33 @@
+FAILURE CASE ANALYSIS - DISCUSSION POINTS
+======================================================================
+
+1. Small Manipulated Regions (19786 cases):
+   - Average area: 0.95% of image
+   - Both models struggle with manipulations covering <5% of the image
+   - Suggests need for multi-scale analysis or attention to fine details
+
+2. Low-Contrast Manipulations (14241 cases):
+   - Average contrast: 14.92
+   - Subtle edits blend seamlessly with authentic content
+   - May require frequency-domain analysis or noise pattern detection
+
+3. Classification Failures (19131 cases):
+   - ResNet-50 errors: 17492
+   - Swin-T errors: 17067
+   - High-quality manipulations can fool both architectures
+   - Ensemble approaches may improve robustness
+
+4. Poor Localization (23804 cases):
+   - Average IoU: 0.0345
+   - Models detect manipulation but focus on wrong regions
+   - ViT attention may be more interpretable than CNN gradients
+
+
+======================================================================
+RECOMMENDATIONS:
+
+1. Multi-scale feature extraction for small manipulations
+2. Frequency-domain analysis for low-contrast edits
+3. Ensemble methods combining CNN and ViT strengths
+4. Improved attention mechanisms for better localization
+5. Data augmentation focusing on challenging cases
