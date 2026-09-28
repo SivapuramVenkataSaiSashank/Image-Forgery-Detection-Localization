@@ -1,0 +1,3 @@
+Model,Pointing Game Accuracy,Hits,Total
+ResNet-50,0.4014,13547,33751
+Swin-T,0.2223,7504,33751
