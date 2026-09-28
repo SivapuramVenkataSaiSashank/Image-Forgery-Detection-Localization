@@ -1,0 +1,4 @@
+Model,Accuracy,Precision,Recall,F1-Score,ROC-AUC
+ResNet-50,0.8197,0.8390,0.7913,0.8145,0.9078
+Swin-T,0.8438,0.8546,0.8287,0.8414,0.9317
+Difference (Swin - ResNet),0.0241,0.0155,0.0374,0.0270,0.0239

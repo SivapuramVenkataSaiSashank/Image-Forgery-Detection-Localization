@@ -1,0 +1,7 @@
+Metric,ResNet-50,Swin-T
+True Negative (TN),28633,28997
+False Positive (FP),5125,4761
+False Negative (FN),7046,5782
+True Positive (TP),26712,27976
+Total Errors,12171,10543
+Error Rate (%),18.03,15.62

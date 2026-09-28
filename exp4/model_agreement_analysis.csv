@@ -1,0 +1,5 @@
+Category,Count,Percentage
+Both Correct,52392,77.60%
+Both Wrong,7590,11.24%
+Only ResNet Correct,2953,4.37%
+Only Swin Correct,4581,6.79%
